@@ -3,7 +3,7 @@ name: .NET
 on:
   push:
     tags:
-      - v1.**
+      - 1.**
 
 env:
   RELEASE_VERSION: ${{ github.ref_name }}
