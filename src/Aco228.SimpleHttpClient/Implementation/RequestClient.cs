@@ -1,11 +1,11 @@
 ﻿using System.Net.Http.Headers;
 using System.Text;
 using System.Web;
-using HttpClient.Exceptions;
+using Aco228.SimpleHttpClient.Exceptions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace HttpClient.Implementation;
+namespace Aco228.SimpleHttpClient.Implementation;
 
 
 public class RequestClient : IRequestClient, IDisposable

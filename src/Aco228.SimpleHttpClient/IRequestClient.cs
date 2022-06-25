@@ -1,6 +1,6 @@
 ﻿using System.Net.Http.Headers;
 
-namespace HttpClient;
+namespace Aco228.SimpleHttpClient;
 
 public interface IRequestClient
 {

@@ -299,3 +299,5 @@ current_auto-update.cmd
 *.DS_Store
 */.DS_Store/*
 
+# Custom
+src/build/*

@@ -1,6 +1,6 @@
 ﻿using System.Net;
 
-namespace HttpClient.Exceptions;
+namespace Aco228.SimpleHttpClient.Exceptions;
 
 public class RequestException : Exception
 {
