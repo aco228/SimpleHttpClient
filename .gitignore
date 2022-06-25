@@ -301,3 +301,4 @@ current_auto-update.cmd
 
 # Custom
 src/build/*
+src/build.bat

@@ -1,17 +1,16 @@
 ﻿using System.Net.Http.Headers;
 using System.Text;
 using System.Web;
-using Aco228.SimpleHttpClient.Exceptions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using Aco228.SimpleHttpClient.Exceptions;
 
-namespace Aco228.SimpleHttpClient.Implementation;
-
+namespace Aco228.SimpleHttpClient;
 
 public class RequestClient : IRequestClient, IDisposable
 {
     protected string BaseUrl { get; private set; }
-    protected System.Net.Http.HttpClient _client = new();
+    protected HttpClient _client = new();
 
     public RequestClient() { }
     public RequestClient(string baseUrl)
