@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aco228.SimpleHttpClient", "..\src\Aco228.SimpleHttpClient\Aco228.SimpleHttpClient.csproj", "{A2933A0E-D3BB-4EB8-A0EA-2DD21AB97501}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aco228.SimpleHttpClientExample", "Aco228.SimpleHttpClientExample\Aco228.SimpleHttpClientExample.csproj", "{72CD944E-BDF3-4FFE-ACA3-A76516BB2072}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A2933A0E-D3BB-4EB8-A0EA-2DD21AB97501}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2933A0E-D3BB-4EB8-A0EA-2DD21AB97501}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2933A0E-D3BB-4EB8-A0EA-2DD21AB97501}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2933A0E-D3BB-4EB8-A0EA-2DD21AB97501}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72CD944E-BDF3-4FFE-ACA3-A76516BB2072}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72CD944E-BDF3-4FFE-ACA3-A76516BB2072}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72CD944E-BDF3-4FFE-ACA3-A76516BB2072}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72CD944E-BDF3-4FFE-ACA3-A76516BB2072}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
