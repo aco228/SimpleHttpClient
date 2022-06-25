@@ -31,9 +31,9 @@ jobs:
     #  run: dotnet test --no-build --verbosity normal
     
     - name: Create package
-      run: dotnet pack --output ./ --version-suffix $RELEASE_VERSION
+      run: dotnet pack --output ./ -p:PackageID=SimpleHttpClient -p:PackageVersion=$RELEASE_VERSION
     
     - name: Publish nudget
-      run: dotnet nuget push HttpClient.$RELEASE_VERSION.nupkg --api-key $NUDGET_API_KEY --source https://api.nuget.org/v3/index.json
+      run: dotnet nuget push SimpleHttpClient.$RELEASE_VERSION.nupkg --api-key $NUDGET_API_KEY --source https://api.nuget.org/v3/index.json
 
   
