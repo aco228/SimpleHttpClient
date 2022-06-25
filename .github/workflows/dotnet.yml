@@ -6,7 +6,7 @@ on:
       - v1.**
 
 env:
-  RELEASE_VERSION: ${{ steps.vars.outputs.tag }}
+  RELEASE_VERSION: ${{ github.ref_name }}
   NUDGET_API_KEY: ${{ secrets.NUDGET_API_KEY }}
 
 jobs:
