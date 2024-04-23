@@ -82,7 +82,7 @@ public class RequestClient : IRequestClient, IDisposable
             }
         }
 
-        var content = OnAddingHeaders(new StringContent(data, Encoding.UTF8));
+        var content = OnAddingHeaders(new StringContent(data, Encoding.UTF8, _contentType));
         return content;
     }
 
@@ -118,9 +118,13 @@ public class RequestClient : IRequestClient, IDisposable
         if (!string.IsNullOrEmpty(query))
             query = (url.Contains("?") ? "&" : "?") + query;
 
-        var response = await _client.GetAsync(GetUrl(url) + query);
+        HttpRequestMessage httpRequest = new HttpRequestMessage(HttpMethod.Get, GetUrl(url) + query);
+        httpRequest.Content = new StringContent(string.Empty, Encoding.UTF8, _contentType);
+
+        var response = await _client.SendAsync(httpRequest);
         OnResponseReceived(response);
-        StringContent requestContent = OnAddingHeaders(new StringContent("", Encoding.UTF8));
+        
+        StringContent requestContent = OnAddingHeaders(new StringContent("", Encoding.UTF8, _contentType));
         EnsureSuccessStatusCode(response, GetUrl(url) + query, requestContent);
         return await response.Content.ReadAsStringAsync();
     }
