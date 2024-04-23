@@ -9,10 +9,12 @@ namespace Aco228.SimpleHttpClient;
 
 public class RequestClient : IRequestClient, IDisposable
 {
-    protected string BaseUrl { get; private set; }
-    protected HttpClient _client = new();
+    private string BaseUrl { get;  set; }
+    private string? _contentType = null;
+    private HttpClient _client = new();
 
     public RequestClient() { }
+    
     public RequestClient(string baseUrl)
     {
         BaseUrl = baseUrl;
@@ -30,6 +32,16 @@ public class RequestClient : IRequestClient, IDisposable
     {
         BaseUrl = baseString;
     }
+
+    protected void ReplaceHttpClient(HttpClient httpClient)
+    {
+        _client = httpClient;
+    }
+    
+    protected HttpClient GetHttpClient() => _client;
+
+    protected void SetContentType(string type) => _contentType = type;
+    protected string? GetContentType() => _contentType;
 
     protected virtual string GetUrl(string url)
         => string.IsNullOrEmpty(BaseUrl) ? url :
@@ -108,7 +120,8 @@ public class RequestClient : IRequestClient, IDisposable
 
         var response = await _client.GetAsync(GetUrl(url) + query);
         OnResponseReceived(response);
-        EnsureSuccessStatusCode(response, GetUrl(url) + query, null);
+        StringContent requestContent = OnAddingHeaders(new StringContent("", Encoding.UTF8));
+        EnsureSuccessStatusCode(response, GetUrl(url) + query, requestContent);
         return await response.Content.ReadAsStringAsync();
     }
 
