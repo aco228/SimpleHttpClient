@@ -217,7 +217,12 @@ public class RequestClient : IRequestClient, IDisposable
         => _client.DefaultRequestHeaders.Authorization = value;
 
     public void AddDefaultHeader(string key, string value)
-        => _client.DefaultRequestHeaders.Add(key, value);
+    {
+        if (_client.DefaultRequestHeaders.Any(x => x.Key.Equals(key)))
+            _client.DefaultRequestHeaders.Remove(key);
+        
+        _client.DefaultRequestHeaders.Add(key, value);
+    }
 
     public string ParamsToStringAsync<T>(T obj)
     {
